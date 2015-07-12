@@ -1,0 +1,6 @@
+---
+- name: vagrant
+  hosts: vagrants
+  gather_facts: no
+  roles:
+    - vagrant

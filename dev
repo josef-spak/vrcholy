@@ -1,0 +1,2 @@
+[vagrants]
+vrcholy ansible_ssh_host=10.123.123.123 ram_size_mb=1024

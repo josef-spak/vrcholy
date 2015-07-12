@@ -1,0 +1,15 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+VAGRANTFILE_API_VERSION = "2"
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "{{ vagrant_box }}"
+{% for host in play_hosts %}
+  config.vm.define "{{ host }}" do |{{ host }}|
+    {{ host }}.vm.host_name = "{{ host }}"
+    {{ host }}.vm.network "private_network", ip: "{{ hostvars[host]['ansible_ssh_host'] }}"
+    {{ host }}.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--memory", "{{ hostvars[host]['ram_size_mb'] | default(512) }}"]
+    end
+  end
+{% endfor %}
+end

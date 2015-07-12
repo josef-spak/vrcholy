@@ -1,0 +1,12 @@
+---
+- name: file
+  local_action: template src=Vagrantfile.j2 dest={{ playbook_dir }}/Vagrantfile
+  run_once: yes
+
+- name: up
+  local_action: command chdir={{ playbook_dir }} vagrant up {{ inventory_hostname }}
+  register: result
+  changed_when: "'VM is already running' not in result.stdout"
+
+- name: ssh wait
+  local_action: wait_for host={{ ansible_ssh_host }} port={{ ansible_ssh_port }} state=started

@@ -1,0 +1,28 @@
+---
+galaxy_info:
+  author: Josef Špak
+  description: Set up Vagrantfile and bring up vagrant VMs using VirtualBox.
+  license: BSD
+  min_ansible_version: 1.5
+  platforms:
+  - name: GenericUNIX
+    versions:
+    - all
+    - any
+  - name: GenericBSD
+    versions:
+    - all
+    - any
+  - name: Ubuntu
+    versions:
+    - all
+  - name: GenericLinux
+    versions:
+    - all
+    - any
+  - name: Debian
+    versions:
+    - all
+  categories:
+  - development
+dependencies: []

@@ -1,3 +1,6 @@
 *.mwb.bak
 *.swp
 *.vim
+.vagrant
+/Vagrantfile
+/ansible.log
